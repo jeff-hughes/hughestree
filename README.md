@@ -1,8 +1,8 @@
-# Porter family tree
+# Hughes family tree
 
-This is the code repository for the Porter family history, available at [porterfamilytree.ca](http://porterfamilytree.ca).
+This is the code repository for the Hughes family history, available at [hughesfamilytree.ca](http://hughesfamilytree.ca).
 
-If you would like to suggest updates to the family tree itself (e.g., births, deaths, marriages), please use the [report page](http://porterfamilytree.ca/report) on the website itself. Suggestions for code improvements can be raised by opening an issue or pull request on the [Github page](https://github.com/jeff-hughes/portertree).
+If you would like to suggest updates to the family tree itself (e.g., births, deaths, marriages), please use the [report page](http://hughesfamilytree.ca/report) on the website itself. Suggestions for code improvements can be raised by opening an issue or pull request on the [Github page](https://github.com/jeff-hughes/hughestree).
 
 ## Deploying the app
 
