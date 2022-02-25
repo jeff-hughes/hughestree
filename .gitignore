@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.pyc
+.meta/
+*.env
+*.code-workspace
+app/app/static/data/*.zip
