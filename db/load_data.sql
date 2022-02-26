@@ -2,17 +2,20 @@ CREATE TABLE people (
     id TEXT PRIMARY KEY,
     print_id TEXT,
     in_tree BOOLEAN NOT NULL,
+    prefix TEXT,
     first_name TEXT,
     nickname TEXT,
     middle_name1 TEXT,
     middle_name2 TEXT,
     last_name TEXT,
+    suffix TEXT,
     pref_name CHAR(2),
     gender CHAR(1),
     birth_month TEXT,
     birth_day INTEGER CHECK (birth_day >= 0 AND birth_day <= 31),
     birth_year TEXT,
     birth_place TEXT,
+    death BOOLEAN,
     death_month TEXT,
     death_day INTEGER CHECK (death_day >= 0 AND death_day <= 31),
     death_year TEXT,
@@ -32,6 +35,7 @@ CREATE TABLE marriages (
     married_place TEXT,
     common_law BOOLEAN,
     divorced BOOLEAN,
+    separated BOOLEAN,
     divorced_month TEXT,
     divorced_day INTEGER CHECK (divorced_day >= 0 AND divorced_day <= 31),
     divorced_year TEXT,
@@ -49,8 +53,8 @@ CREATE TABLE children (
     FOREIGN KEY (cid) REFERENCES people (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-COPY people (id, print_id, in_tree, first_name, nickname, middle_name1, middle_name2, last_name, pref_name, gender, birth_month, birth_day, birth_year, birth_place, death_month, death_day, death_year, death_place, buried, additional_notes) FROM '/data_imports/people.csv' CSV HEADER;
+COPY people (id, print_id, in_tree, prefix, first_name, nickname, middle_name1, middle_name2, last_name, suffix, pref_name, gender, birth_month, birth_day, birth_year, birth_place, death, death_month, death_day, death_year, death_place, buried, additional_notes) FROM '/data_imports/people.csv' CSV HEADER;
 
-COPY marriages (pid1, pid2, marriage_order, married_month, married_day, married_year, married_place, common_law, divorced, divorced_month, divorced_day, divorced_year) FROM '/data_imports/marriages.csv' CSV HEADER;
+COPY marriages (pid1, pid2, marriage_order, married_month, married_day, married_year, married_place, common_law, divorced, separated, divorced_month, divorced_day, divorced_year) FROM '/data_imports/marriages.csv' CSV HEADER;
 
 COPY children (pid, cid, birth_order, adoptive) FROM '/data_imports/children.csv' CSV HEADER;
