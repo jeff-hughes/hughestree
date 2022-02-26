@@ -1,0 +1,35 @@
+version: '3.5'
+
+services:
+  app:
+    build:
+      target: prod
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      DOMAIN: porterfamilytree.ca
+    volumes:
+      - exports:/app/static/data
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - webroot:/var/www/html
+      - dhparam:/etc/ssl/certs
+      - /var/log/nginx:/var/log/nginx
+
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - webroot:/var/www/html
+    depends_on:
+      - app
+    command: certonly --webroot --webroot-path=/var/www/html --email ${LETSENCRYPT_EMAIL} --agree-tos --no-eff-email --force-renewal -d porterfamilytree.ca -d www.porterfamilytree.ca
+
+volumes:
+  exports:
+  certbot-etc:
+  certbot-var:
+  webroot:
+  dhparam:

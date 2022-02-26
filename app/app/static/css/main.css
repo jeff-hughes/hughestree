@@ -1,0 +1,611 @@
+/*! HTML5 Boilerplate v7.3.0 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 2.1.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ======================================================================
+   Font declarations
+====================================================================== */
+
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: normal;
+    font-weight: normal;
+    font-display: block;
+    src: url(../fonts/EB_Garamond/static/EBGaramond-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: normal;
+    font-weight: bold;
+    font-display: block;
+    src: url(../fonts/EB_Garamond/static/EBGaramond-Bold.ttf) format('truetype');
+}
+
+/* ======================================================================
+   Base styles: opinionated defaults
+====================================================================== */
+
+html {
+    color: #222;
+    font-size: 1.2em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ======================================================================
+   Author's custom styles
+====================================================================== */
+
+body {
+    font-family: "EB Garamond", serif;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 0 25px;
+}
+
+header {
+    margin: 1em 0;
+    text-align: center;
+}
+
+footer, body.index #index_footer {
+    margin-top: 3em;
+    text-align: center;
+}
+
+header ul, footer ul, body.index #index_footer ul {
+    font-size: 90%;
+    list-style: none;
+    line-height: 1.8em;
+    margin: 0 auto 1.5em;
+    padding-left: 0;
+}
+
+body.index .focus_text {
+    margin-top: 3em;
+    text-align: center;
+}
+
+body.index .start_links {
+    font-size: 140%;
+    margin: 2em;
+}
+
+body.index .start_links span {
+    display: block;
+}
+
+body.index #search {
+    font-size: 130%;
+    margin-bottom: 1em;
+    padding: .5em;
+    width: 80%;
+}
+
+body.index .advsearch_container {
+    font-size: 80%;
+    margin: 0 auto;
+    position: relative;
+    top: -2.5em;
+    right: -1em;
+    text-align: right;
+    width: 80%;
+}
+
+body.index .additional_container {
+    width: 60%;
+    margin: 0 auto;
+}
+
+body.index #additional_materials {
+    margin: 2em 0 0;
+    line-height: 1.8em;
+}
+
+body.index #additional_list {
+    font-size: 90%;
+    margin-top: 0;
+    padding-left: 0;
+}
+
+body.index footer {
+    display: none;
+}
+
+body.person dl {
+    display: table;
+}
+
+body.person dl .dl_row {
+    display: table-row;
+}
+
+body.person dt {
+    display: table-cell;
+    font-weight: bold;
+    padding: 0 15px 15px 0;
+}
+
+body.person dd {
+    display: table-cell;
+    padding-bottom: 15px;
+}
+
+body.person dd ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+body.person dd ul li:first-child p:first-child {
+    margin-top: 0;
+}
+
+body.person dd .children_header {
+    font-size: 90%;
+    font-style: italic;
+    font-weight: normal;
+    margin: -0.5em 0 0;
+}
+
+body.person dd .children_list {
+    font-size: 90%;
+}
+
+body.adv_search form legend {
+    font-weight: bold;
+    margin-top: 2em;
+}
+
+body.adv_search form fieldset:first-of-type legend {
+    margin-top: 0;
+}
+
+body.adv_search form label {
+    display: block;
+}
+
+body.adv_search form input,
+body.adv_search form select,
+body.adv_search form textarea {
+    width: 90%;
+}
+
+body.adv_search form input[type="checkbox"] {
+    width: auto;
+}
+
+body.adv_search form button {
+    margin: 5px 0;
+}
+
+body.report form legend {
+    font-weight: bold;
+    margin-top: 2em;
+}
+
+body.report form label {
+    display: inline-block;
+    width: 7em;
+}
+
+body.report textarea {
+    width: 100%;
+    height: 10em;
+}
+
+body.admin_login form label {
+    display: inline-block;
+    width: 5em;
+}
+
+body.admin_editdata #form_data {
+    margin-top: 2em;
+}
+
+body.admin_editdata form legend {
+    font-weight: bold;
+    margin-top: 2em;
+}
+
+body.admin_editdata form fieldset:first-of-type legend,
+body.admin_editdata form h3 + fieldset legend:first-child {
+    margin-top: 0;
+}
+
+body.admin_editdata form fieldset p {
+    margin: 0.25em 0;
+}
+
+body.admin_editdata form label {
+    display: inline-block;
+    width: 7em;
+}
+
+body.admin_editdata form input,
+body.admin_editdata form select {
+    width: 20%;
+}
+body.admin_editdata form textarea {
+    display: block;
+    width: 82%;
+    height: 5em;
+}
+
+body.admin_editdata form .long_input {
+    width: 63.3%;
+}
+
+body.admin_editdata form input[type="checkbox"] {
+    width: auto;
+}
+
+body.admin_editdata form button {
+    margin: 5px 0;
+}
+
+.alert_message {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    padding: 10px 15px;
+}
+
+.alert_success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #3c763d;
+}
+
+.alert_warning {
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+    color: #8a6d3b;
+}
+
+.alert_error {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+}
+
+
+/* ======================================================================
+   Helper classes
+====================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+    display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.sr-only {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    /* 1 */
+}
+
+/*
+ * Extends the .sr-only class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.sr-only.focusable:active,
+.sr-only.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    white-space: inherit;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix::before,
+.clearfix::after {
+    content: " ";
+    display: table;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+/* ======================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+====================================================================== */
+
+@media only screen and (min-width: 35em) {
+    header {
+        margin: 2em 0;
+    }
+
+    footer, body.index #index_footer {
+        margin-top: 5em;
+    }
+
+    body.index .focus_text {
+        margin-top: 4em;
+    }
+
+    body.index .start_links {
+        margin: 2.5em;
+    }
+
+    body.index .start_links span {
+        display: inline;
+        padding: 0 5px;
+    }
+
+    body.index #additional_list {
+        list-style: none;
+        line-height: 1.8em;
+    }
+
+    header ul, footer ul, body.index #index_footer ul {
+        line-height: 1em;
+        margin-bottom: 0;
+    }
+
+    header li, footer li, body.index #index_footer li  {
+        display: inline;
+        padding: 1em;
+    }
+
+    body.person dd .children_header {
+        font-size: 100%;
+        padding-left: 2em;
+    }
+
+    body.person dd .children_list {
+        font-size: 100%;
+        padding-left: 2em;
+    }
+
+    body.adv_search form {
+        margin: 0 auto;
+    }
+
+    body.adv_search form {
+        display: grid;
+        align-items: center;
+        grid-template-columns: [labels] 6em [inputs] 1fr;
+    }
+
+    body.adv_search form fieldset {
+        display: contents;
+    }
+
+    body.adv_search form legend {
+        grid-column: span 2;
+    }
+
+    body.adv_search form label {
+        grid-column: labels;
+        grid-row: auto;
+        margin: 5px;
+        text-align: right;
+    }
+
+    body.adv_search form input,
+    body.adv_search form select,
+    body.adv_search form textarea,
+    body.adv_search form button {
+        grid-column: inputs;
+        grid-row: auto;
+        margin: 5px;
+        width: auto;
+    }
+}
+
+@media only screen and (min-width: 40em) {
+    body.adv_search form {
+        width: 60%;
+    }
+
+    body.report textarea {
+        width: 30em;
+    }
+}
+
+@media only screen and (min-width: 45em) {
+    body.index .additional_container {
+        width: 40%;
+    } 
+
+    body.index #additional_list {
+        font-size: 100%;
+    }
+}
+
+/* ======================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+====================================================================== */
+
+@media print {
+    *,
+    *::before,
+    *::after {
+        background: #fff !important;
+        color: #000 !important;
+        /* Black prints faster */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]::after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]::after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+    a[href^="#"]::after,
+    a[href^="javascript:"]::after {
+        content: "";
+    }
+
+    pre {
+        white-space: pre-wrap !important;
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    /*
+     * Printing Tables:
+     * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+
+    .treegraph {
+        display: none;
+    }
+}

@@ -1,0 +1,63 @@
+{% set load_treegraph = True %}
+{% set report_url = True %}
+{% extends "base.html" %}
+
+{% block title %}{{ data.focal.title_name }}{% endblock %}
+
+{% block body_class %}person{% endblock %}
+
+{% block content %}
+    <h2>{{ data.focal.display_name | safe }} {{ data.focal.life_span }}</h2>
+    <dl>
+        <div class="dl_row"><dt>Birth:</dt><dd>{{ data.focal.birth_date }}{% if data.focal.age %} (age {{ data.focal.age }}){% endif %}{% if data.focal.birth_place %}; {{ data.focal.birth_place }}{% endif %}</dd></div>
+
+        {% if data.focal.death_date or data.focal.death_place %}
+            <div class="dl_row"><dt>Death:</dt><dd>{{ data.focal.death_date }}{% if data.focal.age_at_death %} (age {{ data.focal.age_at_death }}){% endif %}{% if data.focal.death_place %}; {{ data.focal.death_place }}{% endif %}</dd></div>
+        {% endif %}
+
+        {% if data.focal.buried %}<div class="dl_row"><dt>Buried:</dt><dd>{{ data.focal.buried }}</dd></div>{% endif %}
+
+        {% if data.focal.additional_notes %}<div class="dl_row"><dt>Notes:</dt><dd>{{ data.focal.additional_notes }}</dd></div>{% endif %}
+
+        {% if data.parents | length > 0 %}
+        <div class="dl_row">
+            <dt>Parent{% if data.parents | length > 1 %}s{% endif %}:</dt>
+            <dd>
+                <ul>
+                {% for p in data.parents %} 
+                    <li><a href="{{ url_for('person_page', pid=p.id) }}">{{ p.display_name | safe }} {{ p.life_span }}</a>{% if p.adoptive %} (adoptive){% endif %}</li> 
+                {% endfor %}
+                </ul>
+            </dd>
+        </div>
+        {% endif %}
+        {% if data.marriages | length > 0 %}
+        <div class="dl_row">
+            <dt>Marriage{% if data.marriages | length > 1 %}s{% endif %}:</dt>
+            <dd>
+                <ul>
+                {% for m in data.marriages %} 
+                    <li>
+                        <p>Married {% if m.marriage_date %}{{ m.marriage_date }},{% endif %}{% if m.married_place %} in {{ m.married_place }},{% endif %} to <a href="{{ url_for('person_page', pid=m.spouse.id) }}">{{ m.spouse.display_name | safe }} {{ m.spouse.life_span }}</a>{% if m.divorced %}; Divorced{% if m.divorced_date %} {{ m.divorced_date }}{% endif %}{% endif %}</p>
+                        {% if m.children | length > 0 %}
+                        <h3 class="children_header">Children:</h3>
+                        <ul class="children_list">
+                            {% for c in m.children %}
+                                <li><a href="{{ url_for('person_page', pid=c.id) }}">{{ c.display_name | safe }} {{ c.life_span }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+                </ul>
+            </dd>
+        </div>
+        {% endif %}
+    </dl>
+    <div class="treegraph"></div>
+    <script>
+        tree_data = {{ data.treegraph | safe }};
+        tree_width = 800;
+        tree_height = 300;
+    </script>
+{% endblock %}
